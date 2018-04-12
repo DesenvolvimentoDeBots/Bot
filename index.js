@@ -1,6 +1,6 @@
 const telegraf = require('telegraf')
 const debug = require('debug')
-//const express = require('express')
+const express = require('express')
 const orgmanager = require('@orgmanager/node-orgmanager-api')
 
 const tg_token = process.env.telegram_token
@@ -8,6 +8,20 @@ const group_link = process.env.telegram_link
 const bot_username = process.env.bot_username
 const channel_id = process.env.tg_channel
 const bot = new telegraf(tg_token)
+
+const app = express();
+const webhook_url = process.env.webhook_url
+const webhook_port = process.env.webhook_port
+const secret_path = process.env.webhook_path
+bot.telegram.setWebhook(webhook_url, null);
+app.use(bot.webhookCallback(secret_path));
+app.get('/', (req, res) => {
+	res.send('Hello World!')
+})
+app.listen(webhook_port, (port) => {
+	console.log(`Express server is listening on ${port}`);
+})
+//bot.startPolling()
 
 const orgm_token = process.env.orgmanager_token
 const orgm_id = process.env.orgmanager_id
@@ -147,6 +161,3 @@ bot.help((ctx) => {
 bot.start((ctx) => {
 	help_show(ctx)
 })
-
-//TODO: Add WebHook
-bot.startPolling()
