@@ -1,5 +1,5 @@
 # Bot
-Bot do grupo: DesenvolvimentoDeBots
+Bot do Grupo: DesenvolvimentoDeBots
 
 ## Installation
 

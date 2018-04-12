@@ -1,7 +1,7 @@
 {
   "name": "ddbots",
   "version": "1.0.0",
-  "description": "Bot do grupo: DesenvolvimentoDeBots",
+  "description": "Bot do Grupo: DesenvolvimentoDeBots",
   "main": "index.js",
   "scripts": {
     "test": "echo 'Nice Test :)'"
