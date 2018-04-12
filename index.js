@@ -147,6 +147,7 @@ Lista de commandos.
 - /help - Lista de comandos.
 - /join - Comando para entrar no grupo.
 - /github - Comando para entrar na organização do Github.
+- /source - Url do repositório do Bot
 	`)
 }
 
@@ -157,6 +158,11 @@ bot.command('ajuda', (ctx) => {
 bot.help((ctx) => {
 	help_show(ctx)
 })
+
+bot.command('source', (ctx) => {
+	ctx.reply('Source code: https://github.com/DesenvolvimentoDeBots/Bot/')
+})
+
 
 bot.start((ctx) => {
 	help_show(ctx)
