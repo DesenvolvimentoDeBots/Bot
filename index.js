@@ -1,27 +1,13 @@
 const telegraf = require('telegraf')
 const debug = require('debug')
-const express = require('express')
 const orgmanager = require('@orgmanager/node-orgmanager-api')
 
 const tg_token = process.env.telegram_token
 const group_link = process.env.telegram_link
 const bot_username = process.env.bot_username
 const channel_id = process.env.tg_channel
+const group_id = process.env.group_id
 const bot = new telegraf(tg_token)
-
-const app = express();
-const webhook_url = process.env.webhook_url
-const webhook_port = process.env.webhook_port
-const secret_path = process.env.webhook_path
-bot.telegram.setWebhook(webhook_url, null);
-app.use(bot.webhookCallback(secret_path));
-app.get('/', (req, res) => {
-	res.send('Hello World!')
-})
-app.listen(webhook_port, (port) => {
-	console.log(`Express server is listening on ${port}`);
-})
-//bot.startPolling()
 
 const orgm_token = process.env.orgmanager_token
 const orgm_id = process.env.orgmanager_id
@@ -30,6 +16,8 @@ const client = new orgmanager(orgm_token)
 function about (ctx) {
 	const about_text = `
 Bem vindo(a) ao grupo *Desenvolvimento de Bots*.
+
+• [Visualização no Site](https://desenvolvimentodebots.github.io/)
 
 • [Regras](https://github.com/DesenvolvimentoDeBots/DesenvolvimentoDeBots#regras).
 • [Ferramentas](https://github.com/DesenvolvimentoDeBots/DesenvolvimentoDeBots#ferramentas) (Frameworks / SDK / Wrapper para Telegram / APIs / Hospedagem).
@@ -45,20 +33,25 @@ ${about_text}
 🐱 Para entrar na Organização no Github use o comando \`/github SeuUserNome\` em um chat privado com o bot do grupo (${bot_username}).
 		`, {parse_mode: 'Markdown'})
 	} else {
-		bot.telegram.sendMessage(channel_id, about_text, {
-			parse_mode: 'Markdown'
-		})
-
-		bot.telegram.sendMessage(channel_id, `*GRUPO* [‌](${group_link})`, {
+		bot.telegram.sendMessage(group_id, about_text, {
 			parse_mode: 'Markdown',
-			reply_markup: {
-				inline_keyboard:[[
-					{
-						text: 'Entrar no Grupo',
-						url: `t.me/${bot_username}?start=join`
-					}
-				]]
-			}
+			disable_web_page_preview: true
+		})
+		bot.telegram.sendMessage(channel_id, about_text, {
+			parse_mode: 'Markdown',
+			disable_web_page_preview: true
+		}).then(() => {
+			bot.telegram.sendMessage(channel_id, `*GRUPO* [‌](${group_link})`, {
+				parse_mode: 'Markdown',
+				reply_markup: {
+					inline_keyboard:[[
+						{
+							text: 'Entrar no Grupo',
+							url: group_link
+						}
+					]]
+				}
+			})
 		})
 	}
 }
@@ -143,27 +136,35 @@ bot.command('pin', (ctx) => {
 function help_show(ctx) {
 	ctx.reply(`
 Lista de commandos.
+- /ajuda - Lista de comandos.
 - /sobre - Sobre do grupo.
-- /help - Lista de comandos.
-- /join - Comando para entrar no grupo.
-- /github - Comando para entrar na organização do Github.
+- /regras - Regras do grupo.
+- /link - Link do groupo.
+- /github [SeuUserNome] - Comando para entrar na organização do Github.
 - /source - Url do repositório do Bot
 	`)
 }
 
-bot.command('ajuda', (ctx) => {
-	help_show(ctx)
-})
-
-bot.help((ctx) => {
+bot.command(['help', 'ajuda'], (ctx) => {
 	help_show(ctx)
 })
 
 bot.command('source', (ctx) => {
-	ctx.reply('Source code: https://github.com/DesenvolvimentoDeBots/Bot/')
+	ctx.reply('Código Fonte: https://github.com/DesenvolvimentoDeBots/Bot/')
 })
 
+bot.command('link', (ctx) => {
+	ctx.replyWithMarkdown(`• *Grupo* [Desenvolvimento De Bots](${group_link})`)
+})
+
+bot.command(['rules', 'regras', 'regra'], (ctx) => {
+	ctx.replyWithMarkdown(`[Seguimos o seguinte código de conduta (github.com/brazil-it-groups/code-of-conduct)](https://github.com/brazil-it-groups/code-of-conduct)
+E também, discussão sobre ManyBot, Chatfuel entre outros criadores de bot autônomos não é permito.
+	`)
+})
 
 bot.start((ctx) => {
 	help_show(ctx)
 })
+
+bot.startPolling()
