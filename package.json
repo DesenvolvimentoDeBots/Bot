@@ -26,6 +26,6 @@
   "dependencies": {
     "@orgmanager/node-orgmanager-api": "1.1.2",
     "debug": "4.1.1",
-    "telegraf": "3.27.0"
+    "telegraf": "3.27.1"
   }
 }
