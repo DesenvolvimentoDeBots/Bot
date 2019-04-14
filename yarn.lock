@@ -400,10 +400,10 @@ stringstream@~0.0.5:
   resolved "https://registry.yarnpkg.com/stringstream/-/stringstream-0.0.6.tgz#7880225b0d4ad10e30927d167a1d6f2fd3b33a72"
   integrity sha512-87GEBAkegbBcweToUrdzf3eLhWNg06FJTebl4BVJz/JgWy8CvEr9dRtX5qWphiynMSQlxxi+QqN0z5T32SLlhA==
 
-telegraf@3.28.0:
-  version "3.28.0"
-  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.28.0.tgz#0cbc6042c4a2486ec4fac0095972484cead8917c"
-  integrity sha512-gIyP7ftpbzD8N26wlX305ojKBEIOI0DhJ7AJKnq0LKq6M4yc4kI8Avdd4o2Vzjo9LcCv5PiO6hcsTBdFRTPSvw==
+telegraf@3.29.0:
+  version "3.29.0"
+  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.29.0.tgz#0655d02b9a2d72d53ff20787947aa10ad54a747c"
+  integrity sha512-zvlY2Wnls7D/sJDTD21tORR9S1Exe6NThUCvYhdhCoKx7+OOZlplSd4yhSZbRI4bViuFdyhxCE+IuWS/ZmAElg==
   dependencies:
     "@types/node" "^11.12.1"
     debug "^4.0.1"
