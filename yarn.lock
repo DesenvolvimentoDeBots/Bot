@@ -10,10 +10,10 @@
     request "2.83.0"
     request-promise-native "1.0.5"
 
-"@types/node@^12.0.4":
-  version "12.12.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.7.tgz#01e4ea724d9e3bd50d90c11fd5980ba317d8fa11"
-  integrity sha512-E6Zn0rffhgd130zbCbAr/JdXfXkoOUFAKNs/rF8qnafSJ8KYaA/j3oz7dcwal+lYjLA7xvdd5J4wdYpCTlP8+w==
+"@types/node@^13.1.0":
+  version "13.1.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.2.tgz#fe94285bf5e0782e1a9e5a8c482b1c34465fa385"
+  integrity sha512-B8emQA1qeKerqd1dmIsQYnXi+mmAzTB7flExjmy5X1aVAKFNNNDubkavwR13kR6JnpeLp3aLoJhwn9trWPAyFQ==
 
 ajv@^5.1.0:
   version "5.5.2"
@@ -410,12 +410,12 @@ stringstream@~0.0.5:
   resolved "https://registry.yarnpkg.com/stringstream/-/stringstream-0.0.6.tgz#7880225b0d4ad10e30927d167a1d6f2fd3b33a72"
   integrity sha512-87GEBAkegbBcweToUrdzf3eLhWNg06FJTebl4BVJz/JgWy8CvEr9dRtX5qWphiynMSQlxxi+QqN0z5T32SLlhA==
 
-telegraf@3.34.1:
-  version "3.34.1"
-  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.34.1.tgz#69006497f8ea4badd724164ae913cef643726719"
-  integrity sha512-XKempUafzdi3TrPIA/jo2e7sRoLjE7oexgYTzQ7BeWHPnEi+Wh5EvOroOElSD9V4SCt9bub3HM352VK7dJS8Zw==
+telegraf@3.35.0:
+  version "3.35.0"
+  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.35.0.tgz#edf454ef3239efa1b754c5cd24407d56863e586c"
+  integrity sha512-C60rps0vEnKcg8ZwS3czwFRVUsq10tn+babK+ujdQeflX267yqB8sw4vVV7c7qCApccqI7sbCrBOPRVb2+4MoQ==
   dependencies:
-    "@types/node" "^12.0.4"
+    "@types/node" "^13.1.0"
     debug "^4.0.1"
     minimist "^1.2.0"
     module-alias "^2.2.2"
