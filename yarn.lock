@@ -447,10 +447,10 @@ stringstream@~0.0.5:
   resolved "https://registry.yarnpkg.com/stringstream/-/stringstream-0.0.6.tgz#7880225b0d4ad10e30927d167a1d6f2fd3b33a72"
   integrity sha512-87GEBAkegbBcweToUrdzf3eLhWNg06FJTebl4BVJz/JgWy8CvEr9dRtX5qWphiynMSQlxxi+QqN0z5T32SLlhA==
 
-telegraf@4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-4.4.1.tgz#f7a9c82db17417149494aa63f9956e3484ffdcf6"
-  integrity sha512-jxV8fC/K6abcUTlhy/l8txJAmEJIkJoDu/cN0yXOJWLp9csfLIp+cD4qlwJ6ko+4EgOJmNZvWK7Tr2dxKolJQQ==
+telegraf@4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-4.4.2.tgz#dd1b99a50593de303c8f47bbe98201a93a125f31"
+  integrity sha512-OGt9w1LbxYUOsRk3htAavBnL9hqWycmJNiOmS74oARzxKFnYS/MdwW8b5CX9VLCJt537AXkm8/eBNiEYD8E7lQ==
   dependencies:
     abort-controller "^3.0.0"
     debug "^4.3.1"
